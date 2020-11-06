@@ -26,7 +26,38 @@
             </tbody>
         </table>
         <div>
-            <a href="#" class="btn btn-primary">Valider mon panier</a>
+            <button id="checkout-button" class="btn btn-primary">Valider mon panier</button>
         </div>
     </section>
+{% endblock %}
+
+{% block javascripts %}
+    <script src="https://js.stripe.com/v3/"></script>
+    <script type="text/javascript">
+        // Create an instance of the Stripe object with your publishable API key
+        var stripe = Stripe("pk_test_51HkPZdCc8KoQEaMIDql30GSBanEj8aJDGTNpJIotdao7SMlshLBjXON95ms5igDRNeYiVa9NnlDoLIIScoN5s1MH00PB5BDRsh");
+        var checkoutButton = document.getElementById("checkout-button");
+        checkoutButton.addEventListener("click", function () {
+            fetch("{{ path('stripe_create_session') }}", {
+                method: "POST",
+            })
+                .then(function (response) {
+                    return response.json();
+                })
+                .then(function (session) {
+                    return stripe.redirectToCheckout({ sessionId: session.id });
+                })
+                .then(function (result) {
+                    // If redirectToCheckout fails due to a browser or network
+                    // error, you should display the localized error message to your
+                    // customer using error.message.
+                    if (result.error) {
+                        alert(result.error.message);
+                    }
+                })
+                .catch(function (error) {
+                    console.error("Error:", error);
+                });
+        });
+    </script>
 {% endblock %}

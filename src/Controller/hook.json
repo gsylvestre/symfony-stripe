@@ -1,0 +1,48 @@
+{
+  "id": "evt_1HkVRzCc8KoQEaMIvWX9XHmH",
+  "object": "event",
+  "api_version": "2020-08-27",
+  "created": 1604671079,
+  "data": {
+    "object": {
+      "id": "cs_test_vfHrIZq592bcR5Xz6rjFvAvQn0dqt7Zan3lVRSyRsMwl0N7MbqIsy7Ui",
+      "object": "checkout.session",
+      "allow_promotion_codes": null,
+      "amount_subtotal": 93932,
+      "amount_total": 93932,
+      "billing_address_collection": null,
+      "cancel_url": "https://127.0.0.1:8000/commande/annulation",
+      "client_reference_id": null,
+      "currency": "eur",
+      "customer": "cus_ILBpyqVR0aVTlX",
+      "customer_email": null,
+      "livemode": false,
+      "locale": null,
+      "metadata": {
+      },
+      "mode": "payment",
+      "payment_intent": "pi_1HkVReCc8KoQEaMI1R96xGiG",
+      "payment_method_types": [
+        "card"
+      ],
+      "payment_status": "paid",
+      "setup_intent": null,
+      "shipping": null,
+      "shipping_address_collection": null,
+      "submit_type": null,
+      "subscription": null,
+      "success_url": "https://127.0.0.1:8000/commande/validation",
+      "total_details": {
+        "amount_discount": 0,
+        "amount_tax": 0
+      }
+    }
+  },
+  "livemode": false,
+  "pending_webhooks": 2,
+  "request": {
+    "id": null,
+    "idempotency_key": null
+  },
+  "type": "checkout.session.completed"
+}

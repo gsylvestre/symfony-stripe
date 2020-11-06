@@ -96,8 +96,8 @@
     "egulias/email-validator": {
         "version": "2.1.23"
     },
-    "fzaninotto/faker": {
-        "version": "v1.9.1"
+    "fakerphp/faker": {
+        "version": "v1.10.1"
     },
     "laminas/laminas-code": {
         "version": "3.4.1"
@@ -152,6 +152,9 @@
         "files": [
             "config/packages/sensio_framework_extra.yaml"
         ]
+    },
+    "stripe/stripe-php": {
+        "version": "v7.61.0"
     },
     "symfony/apache-pack": {
         "version": "1.0",

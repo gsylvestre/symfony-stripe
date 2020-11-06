@@ -101,4 +101,27 @@ class Cart
         }
         return $total;
     }
+
+    public function getStripeLineItems()
+    {
+        $lineItems = [];
+
+        foreach($this->getProducts() as $product){
+
+            $line = [
+                    'price_data' => [
+                        'currency' => 'eur',
+                        'unit_amount' => $product->getPrice(),
+                        'product_data' => [
+                            'name' => $product->getName(),
+                        ],
+                    ],
+                    'quantity' => 1,
+                ];
+
+            $lineItems[] = $line;
+        }
+
+        return $lineItems;
+    }
 }
