@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>{% block title %}Welcome!{% endblock %}</title>
+        {% block stylesheets %}{% endblock %}
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    </head>
+    <body>
+        <header class="container d-flex align-items-center justify-content-between">
+            <h1>Ecomm</h1>
+            <nav class="nav nav-pills">
+                <div class="nav-item"><a class="nav-link" href="{{ path('home') }}" >Accueil</a></div>
+                {% if app.user %}
+                    <div class="nav-item"><a class="nav-link" href="{{ path('cart') }}">Panier</a></div>
+                    <div class="nav-item"><a class="nav-link" href="{{ path('app_login') }}">Déconnexion</a></div>
+                {% else %}
+                    <div class="nav-item"><a class="nav-link" href="{{ path('app_register') }}">Créer votre compte</a></div>
+                    <div class="nav-item"><a class="nav-link" href="{{ path('app_login') }}">Connexion</a></div>
+                {% endif %}
+            </nav>
+        </header>
+        <main class="container">
+            {% block body %}{% endblock %}
+        </main>
+        <footer class="container">
+
+        </footer>
+        {% block javascripts %}{% endblock %}
+    </body>
+</html>
